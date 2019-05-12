@@ -1,0 +1,23 @@
+<template>
+  <input
+    type.bind="type"
+    class.bind="className"
+    placeholder.bind="placeholder"
+    value.bind="value"
+    name.bind="propertyName"
+    blur.trigger="onBlur()"
+    keyup.trigger="onKeyUp()"
+  />
+
+  <div if.bind="isValidFeedback" class="valid-feedback">
+    Looks good!
+  </div>
+
+  <div
+    if.bind="isInValidFeedback"
+    class="invalid-feedback"
+    repeat.for="error of errors"
+  >
+    ${error.message}
+  </div>
+</template>

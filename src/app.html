@@ -1,0 +1,38 @@
+<template>
+    <require from="./vinput"></require>
+    <require from="./vselect"></require>
+
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="validationServer03">First Name</label>
+      <vinput
+        type="text"
+        class="form-control"      
+        placeholder="Name"   
+        property-name="firstName" 
+        value.bind="person.firstName"   
+        validation-result.bind="validationResultObj" 
+        handle-blur.bind="handleBlur" 
+        handle-change.bind="handleChange"  
+        containerless        
+      />
+    </div>
+    <div class="col-md-6 mb-3">
+      <div class="form-group">
+        <label  >Example select</label>
+        <vselect     
+            property-name="genderId" 
+        value.bind="person.genderId"   
+         source.bind="genders"  
+         handle-change.bind="handleChange"  
+         validation-result.bind="validationResultObj" 
+          containerless        
+        />
+
+      </div>
+    </div>
+
+  </div>
+
+  <button click.delegate="handleSubmit()">Validate</button>
+</template>

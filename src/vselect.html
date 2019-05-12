@@ -1,0 +1,19 @@
+<template>
+  <select class.bind="className" value.bind="value" change.trigger="onChange()">
+    <option repeat.for="model of source" model.bind="model.value"
+      >${model.label}</option
+    >
+  </select>
+
+  <div if.bind="isValidFeedback" class="valid-feedback">
+    Looks good!
+  </div>
+
+  <div
+    if.bind="isInValidFeedback"
+    class="invalid-feedback"
+    repeat.for="error of errors"
+  >
+    ${error.message}
+  </div>
+</template>
